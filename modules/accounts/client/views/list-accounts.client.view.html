@@ -1,0 +1,72 @@
+<section>
+    <div class="page-header">
+        <h1>Accounts</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label" for="year">Select Year</label>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <select ng-options="data as data for data in years | orderBy" ng-model="vm.year" class="form-control">
+                  <option value="">Select Year</option>
+                </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label" for="year">Year</label>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <input name="year" type="number" ng-model="vm.account.year" id="year" class="form-control" placeholder="Year">
+                    </div>
+                    <div class="col-xs-6">
+                        <button type="button" class="btn btn-block btn-primary" ng-click="checkYear(vm.account.year)" ng-disabled="!vm.account.year">Add Year</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list-group" ng-show="vm.year">
+        <div class="row">
+            <div class="col-xs-3" ng-repeat="account in vm.accounts | orderBy:['year','month.no'] | filter: {year : vm.year,user:{_id:vm.authentication.user._id}}" ui-sref="accounts.edit({ accountId: account._id })" class="list-group-item">
+                <div class=" panel panel-default ">
+                    <div class="panel-body ">
+                        <div class="row">
+                            <div class="col-xs-6 text-center">
+                                <h3 class="control-label" ng-show="account.lists.length == 0">{{account.month.name}}</h3>
+                                <h3 class="control-label" style="color:deepskyblue;" ng-show="account.lists.length > 0">{{account.month.name}}</h3>
+                                <i class="fa fa-calendar" aria-hidden="true" style="font-size: 18px;" ng-show="account.lists.length == 0"></i>
+                                <i class="fa fa-calendar" aria-hidden="true" style="font-size: 18px; color: deepskyblue;" ng-show="account.lists.length > 0"></i>
+                            </div>
+                            <div class="col-xs-6">
+                                <p class="control-label" ng-show="account.lists.length == 0"> Days : {{account.month.days}}</p>
+                                <p class="control-label" ng-show="account.lists.length == 0"> Year: {{account.year}}</p>
+                                <p class="control-label" style="color:deepskyblue; font-weight: bold;" ng-show="account.lists.length > 0"> Days : {{account.month.days}}</p>
+                                <p class="control-label" style="color:deepskyblue; font-weight: bold;" ng-show="account.lists.length > 0"> Year: {{account.year}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--<small class="list-group-item-text ">
+        {{account.month.name}} {{account.year}}
+        <span ng-bind="account.created | date: 'mediumDate' "></span>
+        by
+        <span ng-if="account.user " ng-bind="account.user.displayName "></span>
+        <span ng-if="!account.user ">Deleted User</span>
+      </small>
+            <h4 class="list-group-item-heading " ng-bind="account.name "></h4>-->
+    </div>
+    <div class="alert alert-warning text-center " ng-if="vm.accounts.$resolved && !vm.accounts.length ">
+        No Accounts yet, why don't you <a ui-sref="accounts.create ">create one</a>?
+    </div>
+</section>

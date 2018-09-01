@@ -1,0 +1,83 @@
+<section>
+    <div class="page-header">
+        <h1>Master Lists</h1>
+    </div>
+    <!--<div class="list-group">
+        <a ng-repeat="masterlist in vm.masterlists" ui-sref="masterlists.view({ masterlistId: masterlist._id })" class="list-group-item">
+            <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="masterlist.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="masterlist.user" ng-bind="masterlist.user.displayName"></span>
+        <span ng-if="!masterlist.user">Deleted User</span>
+      </small>
+            <h4 class="list-group-item-heading" ng-bind="masterlist.name"></h4>
+        </a>
+    </div>-->
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-3">
+                <select class="form-control" ng-model="searchType">
+          <option value="">Select Type</option>
+          <option value="Income">Income</option>
+          <option value="Outcome">Outcome</option>
+      </select>
+            </div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3">
+                <button type="button" class="btn btn-block btn-outline btn-primary" ui-sref="masterlists.create">New Master</button>
+            </div>
+        </div>
+
+    </div>
+    <!--<div style="background: white">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Prices</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="masterlist in vm.masterlists | filter:{types:searchType}" ui-sref="masterlists.edit({ masterlistId: masterlist._id })">
+                        <td>{{$index+1}}</td>
+                        <td>{{masterlist.name}}</td>
+                        <td>{{masterlist.prices}}</td>
+                        <td>{{masterlist.types}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>-->
+    <div class="list-group">
+        <div class="row">
+            <div class="col-xs-3" ng-repeat="masterlist in vm.masterlists | filter:{types:searchType,user:{_id:vm.authentication.user._id}}" ui-sref="masterlists.edit({ masterlistId: masterlist._id })" class="list-group-item">
+                <div class=" panel panel-default ">
+                    <div class="panel-body ">
+                        <div class="row">
+                            <div class="col-xs-6 text-center">
+                                <h3 class="control-label">{{masterlist.name}}</h3>
+                                <i class="fa fa-plane" aria-hidden="true" style="font-size: 18px; color: deepskyblue; font-weight: bold;" ng-show="masterlist.name == 'Travel'"></i>
+                                <i class="fa fa-money" aria-hidden="true" style="font-size: 18px; color: mediumpurple; font-weight: bold;" ng-show="masterlist.name == 'Salary'"></i>
+                                <i class="fa fa-credit-card" aria-hidden="true" style="font-size: 18px; color: #F4D03F; font-weight: bold;" ng-show="masterlist.name == 'First Choice'"></i>
+                                <i class="fa fa-home" aria-hidden="true" style="font-size: 18px; color:hotpink; font-weight: bold;" ng-show="masterlist.name == 'Room'"></i>
+                                <i class="fa fa-mobile-phone" aria-hidden="true" style="font-size: 18px; color:darkorange; font-weight: bold;" ng-show="masterlist.name == 'Telephone'"></i>
+                            </div>
+                            <div class="col-xs-6">
+                                <p class="control-label"> Prices : {{masterlist.prices}}</p>
+                                <p class="control-label"> Type: {{masterlist.types}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alert alert-warning text-center" ng-if="vm.masterlists.$resolved && !vm.masterlists.length">
+        No Masterlists yet, why don't you <a ui-sref="masterlists.create">create one</a>?
+    </div>
+</section>

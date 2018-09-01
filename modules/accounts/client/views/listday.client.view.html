@@ -1,0 +1,146 @@
+<section style="min-height: 1000px;">
+    <div class="page-header">
+        <h1>{{vm.account.month.name }} / {{ vm.day }} / {{vm.account.year}}</h1>
+    </div>
+    <div class="col-md-12">
+        <form name="vm.form.accountForm" class="form-horizontal" ng-submit="vm.save(vm.form.accountForm.$valid)" novalidate>
+            <fieldset>
+                <!--<div class="form-group" show-errors>
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.account.name" id="name" class="form-control" placeholder="Name" required>
+          <div ng-messages="vm.form.accountForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Account name is required.</p>
+          </div>
+        </div>-->
+                <!--<div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label class="control-label" for="months">Months</label>
+                            <input name="month" type="text" ng-model="vm.account.month.name" id="month" class="form-control" placeholder="month">
+                        </div>
+                        <div class="col-xs-6">
+                            <label class="control-label" for="months">Year</label>
+                            <input name="year" type="text" ng-model="vm.account.year" id="year" class="form-control" placeholder="year">
+                        </div>
+                    </div>
+                </div>-->
+                <!--<div class="form-group">
+                    <label class="control-label" for="lists">Lists Master</label>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <select class="form-control" ng-options="item as item.name for item in vm.masterlists | filter:{types:'Outcome'}" ng-model="vm.list" ng-change="selectList(vm.list)">
+                      <option value="">Select List</option>
+                    </select>
+                        </div>
+                        <div class="col-xs-3">
+                            <input name="prices" type="number" ng-model="vm.prices" id="prices" class="form-control" placeholder="Prices">
+                        </div>
+                        <div class="col-xs-3">
+                            <button type="button" class="btn btn-block btn-default" ng-click="addList(vm.list)" ng-disabled="!vm.list">Add List</button>
+                        </div>
+                    </div>
+
+                </div>-->
+                <!--<div class="form-group" ng-show="vm.account.lists.length > 0">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Lists</div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th class="text-center">List</th>
+                                    <th class="text-center">Prices</th>
+                                    <th class="text-center">Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="item in vm.account.lists">
+                                <tr>
+                                    <td>{{$index+1}}</td>
+                                    <td class="text-center">{{item.master.name}}</td>
+                                    <td class="text-center">{{item.master.prices}}</td>
+                                    <td class="text-center"><i class="fa fa-trash" aria-hidden="true" style="color: red" ng-click="removeList($index)"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>-->
+                <div class="form-group">
+                    <label class="control-label" for="comment">Lists Outcome</label>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <input name="listoutcome" type="text" ng-model="vm.listOutcome" id="comment" class="form-control" placeholder="Comment">
+
+                        </div>
+                        <div class="col-xs-3">
+                            <input name="priceoutcome" type="number" ng-model="vm.priceOutcome" id="price" class="form-control" placeholder="Price">
+
+                        </div>
+                        <div class="col-xs-3">
+                            <button type="button" class="btn btn-block btn-default" ng-click="addListOutcome()" ng-disabled="!vm.listOutcome || !vm.priceOutcome">Add Comment</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group" ng-show="vm.listOutcometotal != 0">
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">Lists</div>
+
+                        <!-- Table -->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th class="text-center">List</th>
+                                    <th class="text-center">Prices</th>
+                                    <th class="text-center">Type</th>
+                                    <th class="text-center">Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="list in vm.account.month.items | filter:{day:vm.day}">
+                                <tr ng-repeat="outcome in list.lists">
+                                    <td>{{$index+1}}</td>
+                                    <td class="text-center">{{outcome.name}}</td>
+                                    <td class="text-center">{{outcome.prices}}</td>
+                                    <td class="text-center">{{outcome.types}}</td>
+                                    <td class="text-center"><i class="fa fa-trash" aria-hidden="true" style="color: red" ng-click="removeListOutcome($index)"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label class="control-label" for="amount">Amount</label>
+                            <input name="amount" type="number" ng-model="vm.listOutcomeAmount" id="amount" class="form-control" placeholder="Amount">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="total">Total</label>
+                            <input name="total" type="number" ng-model="vm.listOutcometotal" id="total" class="form-control" placeholder="Total">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="balance">Balance</label>
+                            <input name="balance" type="number" ng-model="vm.listOutcomeBalance" id="balance" class="form-control" placeholder="Balance">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-block btn-primary">{{vm.account._id ? 'Update' : 'Create'}}</button>
+                        </div>
+                        <div ng-show="vm.error" class="text-danger">
+                            <strong ng-bind="vm.error"></strong>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</section>
