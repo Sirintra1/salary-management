@@ -30,17 +30,20 @@
         // vm.width = vm.getWidth();
         // vm.account.lists ? vm.account.lists : [];
         // vm.account.comment ? vm.account.comment : [];
-        if (vm.account.lists.length > 0) {
-            vm.account.lists = vm.account.lists;
-        } else {
-            vm.account.lists = [];
+        if (vm.account) {
+            if (vm.account.lists.length > 0) {
+                vm.account.lists = vm.account.lists;
+            } else {
+                vm.account.lists = [];
+            }
+
+            if (vm.account.comment.length > 0) {
+                vm.account.comment = vm.account.comment;
+            } else {
+                vm.account.lists = [];
+            }
         }
 
-        if (vm.account.comment.length > 0) {
-            vm.account.comment = vm.account.comment;
-        } else {
-            vm.account.lists = [];
-        }
 
         if ($stateParams.day) {
             vm.day = $stateParams.day;
