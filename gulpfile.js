@@ -35,6 +35,10 @@ gulp.task('env:prod', function () {
   process.env.NODE_ENV = 'production';
 });
 
+gulp.task('build:prod', function (done) {
+  runSequence('env:prod', 'lint', ['uglify', 'cssmin'], done);
+});
+
 // Nodemon task
 gulp.task('nodemon', function () {
   return plugins.nodemon({
