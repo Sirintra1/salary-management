@@ -32,19 +32,19 @@
         // vm.account.comment ? vm.account.comment : [];
         console.log(vm.account);
         
-        if (vm.account) {
-            if (vm.account.lists.length > 0) {
-                vm.account.lists = vm.account.lists;
-            } else {
-                vm.account.lists = [];
-            }
+        // if (vm.account) {
+        //     if (vm.account.lists.length > 0) {
+        //         vm.account.lists = vm.account.lists;
+        //     } else {
+        //         vm.account.lists = [];
+        //     }
 
-            if (vm.account.comment.length > 0) {
-                vm.account.comment = vm.account.comment;
-            } else {
-                vm.account.lists = [];
-            }
-        }
+        //     if (vm.account.comment.length > 0) {
+        //         vm.account.comment = vm.account.comment;
+        //     } else {
+        //         vm.account.lists = [];
+        //     }
+        // }
 
 
         if ($stateParams.day) {
@@ -84,6 +84,7 @@
         };
 
         $scope.addList = function (item) {
+            vm.account.lists = vm.account.lists ? vm.account.lists : [];
             vm.account.lists.push({
                 master: item
             });
@@ -94,6 +95,7 @@
         };
 
         $scope.addComment = function () {
+            vm.account.comment = vm.account.comment ? vm.account.comment : [];
             vm.account.comment.push({
                 other: vm.commentOther,
                 price: vm.commentPrice,
