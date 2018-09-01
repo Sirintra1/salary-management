@@ -4,74 +4,88 @@
     </div>
     <div class="form-group" style="margin-left: 30px; ">
         <div class="row ">
-            <div class="col-xs-1 " style="width: 160px;">
+            <div class="col-xs-1-4">
                 <div class="row ">
                     <input type="text " value="Sun " class="form-control text-center " disabled style="height: 70px; font-weight: bold; font-size: 18px; ">
                 </div>
                 <div class="row " ng-repeat="days in vm.account.month.items | filter:{nameday: 'Sun'} ">
                     <button class="btn btn-block btn-default " ng-if="days.day===0 " style="color:white;height: 70px; " disabled>{{days.day}}</button>
-                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length == 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })" style="height: 70px; font-weight: bold;color: red;">{{days.day}}</button>
-                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length > 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })" style="height: 70px; font-weight: bold;color: #FFADAD;">{{days.day}}</button>
+                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length == 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })"
+                        style="height: 70px; font-weight: bold;color: red;">{{days.day}}</button>
+                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length > 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })"
+                        style="height: 70px; font-weight: bold;color: #FFADAD;">{{days.day}}</button>
                 </div>
             </div>
-            <div class="col-xs-1 " style="width: 160px;">
+            <div class="col-xs-1-4">
                 <div class="row ">
                     <input type="text " value="Mon " class="form-control text-center " disabled style="height: 70px; font-weight: bold; font-size: 18px; ">
                 </div>
                 <div class="row " ng-repeat="days in vm.account.month.items | filter:{nameday: 'Mon'} ">
                     <button class="btn btn-block btn-default " ng-if="days.day===0 " style="color:white;height: 70px; " disabled>{{days.day}}</button>
-                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length == 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })" style="height: 70px; font-weight: bold;color: grey;">{{days.day}}</button>
-                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length > 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })" style="height: 70px; font-weight: bold;color: lightgray;">{{days.day}}</button>
+                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length == 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })"
+                        style="height: 70px; font-weight: bold;color: grey;">{{days.day}}</button>
+                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length > 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })"
+                        style="height: 70px; font-weight: bold;color: lightgray;">{{days.day}}</button>
                 </div>
             </div>
-            <div class="col-xs-1" style="width: 160px;">
+            <div class="col-xs-1-4">
                 <div class="row">
                     <input type="text" value="Tue" class="form-control text-center" disabled style="height: 70px; font-weight: bold; font-size: 18px;">
                 </div>
                 <div class="row" ng-repeat="days in vm.account.month.items | filter:{nameday:'Tue'}">
                     <button class="btn btn-block btn-default" ng-if="days.day === 0" style="color:white;height: 70px;" disabled>{{days.day}}</button>
-                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length == 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })" style="height: 70px; font-weight: bold;color: grey;">{{days.day}}</button>
-                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length > 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })" style="height: 70px; font-weight: bold;color: lightgray;">{{days.day}}</button>
+                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length == 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })"
+                        style="height: 70px; font-weight: bold;color: grey;">{{days.day}}</button>
+                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length > 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })"
+                        style="height: 70px; font-weight: bold;color: lightgray;">{{days.day}}</button>
                 </div>
             </div>
-            <div class="col-xs-1" style="width: 160px;">
+            <div class="col-xs-1-4">
                 <div class="row">
                     <input type="text" value="Wed" class="form-control text-center" disabled style="height: 70px; font-weight: bold; font-size: 18px;">
                 </div>
                 <div class="row" ng-repeat="days in vm.account.month.items | filter:{nameday:'Wed'}">
                     <button class="btn btn-block btn-default" ng-if="days.day === 0" style="color:white;height: 70px;" disabled>{{days.day}}</button>
-                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length == 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })" style="height: 70px; font-weight: bold;color: grey;">{{days.day}}</button>
-                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length > 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })" style="height: 70px; font-weight: bold;color: lightgray;">{{days.day}}</button>
+                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length == 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })"
+                        style="height: 70px; font-weight: bold;color: grey;">{{days.day}}</button>
+                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length > 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })"
+                        style="height: 70px; font-weight: bold;color: lightgray;">{{days.day}}</button>
                 </div>
             </div>
-            <div class="col-xs-1" style="width: 160px;">
+            <div class="col-xs-1-4">
                 <div class="row">
                     <input type="text" value="Thu" class="form-control text-center" disabled style="height: 70px; font-weight: bold; font-size: 18px;">
                 </div>
                 <div class="row" ng-repeat="days in vm.account.month.items | filter:{nameday:'Thu'}">
                     <button class="btn btn-block btn-default" ng-if="days.day === 0" style="color:white;height: 70px;" disabled>{{days.day}}</button>
-                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length == 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })" style="height: 70px; font-weight: bold;color: grey;">{{days.day}}</button>
-                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length > 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })" style="height: 70px; font-weight: bold;color: lightgray;">{{days.day}}</button>
+                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length == 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })"
+                        style="height: 70px; font-weight: bold;color: grey;">{{days.day}}</button>
+                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length > 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })"
+                        style="height: 70px; font-weight: bold;color: lightgray;">{{days.day}}</button>
                 </div>
             </div>
-            <div class="col-xs-1" style="width: 160px;">
+            <div class="col-xs-1-4">
                 <div class="row">
                     <input type="text" value="Fri" class="form-control text-center" disabled style="height: 70px; font-weight: bold; font-size: 18px;">
                 </div>
                 <div class="row" ng-repeat="days in vm.account.month.items | filter:{nameday:'Fri'}">
                     <button class="btn btn-block btn-default" ng-if="days.day === 0" style="color:white;height: 70px;" disabled>{{days.day}}</button>
-                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length == 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })" style="height: 70px; font-weight: bold;color: grey;">{{days.day}}</button>
-                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length > 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })" style="height: 70px; font-weight: bold;color: lightgray;">{{days.day}}</button>
+                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length == 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })"
+                        style="height: 70px; font-weight: bold;color: grey;">{{days.day}}</button>
+                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length > 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })"
+                        style="height: 70px; font-weight: bold;color: lightgray;">{{days.day}}</button>
                 </div>
             </div>
-            <div class="col-xs-1" style="width: 160px;">
+            <div class="col-xs-1-4">
                 <div class="row">
                     <input type="text" value="Sat" class="form-control text-center" disabled style="height: 70px; font-weight: bold;font-size: 18px;">
                 </div>
                 <div class="row" ng-repeat="days in vm.account.month.items | filter:{nameday:'Sat'}">
                     <button class="btn btn-block btn-default" ng-if="days.day === 0" style="color:white;height: 70px;" disabled>{{days.day}}</button>
-                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length == 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })" style="height: 70px; font-weight: bold;color: red;">{{days.day}}</button>
-                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length > 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })" style="height: 70px; font-weight: bold;color: #FFADAD;">{{days.day}}</button>
+                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length == 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })"
+                        style="height: 70px; font-weight: bold;color: red;">{{days.day}}</button>
+                    <button class="btn btn-block btn-default " ng-if="days.day> 0 && days.lists.length > 0" ui-sref="accounts.listDay({ accountId: vm.account._id, day: days.day })"
+                        style="height: 70px; font-weight: bold;color: #FFADAD;">{{days.day}}</button>
                 </div>
             </div>
         </div>

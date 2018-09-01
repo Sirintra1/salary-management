@@ -35,7 +35,7 @@
     </div>
     <div class="list-group" ng-show="vm.year">
         <div class="row">
-            <div class="col-xs-3" ng-repeat="account in vm.accounts | orderBy:['year','month.no'] | filter: {year : vm.year,user:{_id:vm.authentication.user._id}}" ui-sref="accounts.edit({ accountId: account._id })" class="list-group-item">
+            <div class="col-xs-4 col-md-3" ng-repeat="account in vm.accounts | orderBy:['year','month.no'] | filter: {year : vm.year,user:{_id:vm.authentication.user._id}}" ui-sref="accounts.edit({ accountId: account._id })" class="list-group-item">
                 <div class=" panel panel-default ">
                     <div class="panel-body ">
                         <div class="row">

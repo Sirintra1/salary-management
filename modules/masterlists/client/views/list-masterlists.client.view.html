@@ -55,17 +55,18 @@
     </div>-->
     <div class="list-group">
         <div class="row">
-            <div class="col-xs-3" ng-repeat="masterlist in vm.masterlists | filter:{types:searchType,user:{_id:vm.authentication.user._id}}" ui-sref="masterlists.edit({ masterlistId: masterlist._id })" class="list-group-item">
+            <div class="col-md-3 col-xs-4" ng-repeat="masterlist in vm.masterlists | filter:{types:searchType,user:{_id:vm.authentication.user._id}}" ui-sref="masterlists.edit({ masterlistId: masterlist._id })" class="list-group-item">
                 <div class=" panel panel-default ">
                     <div class="panel-body ">
                         <div class="row">
                             <div class="col-xs-6 text-center">
                                 <h3 class="control-label">{{masterlist.name}}</h3>
-                                <i class="fa fa-plane" aria-hidden="true" style="font-size: 18px; color: deepskyblue; font-weight: bold;" ng-show="masterlist.name == 'Travel'"></i>
+                                <i class="fa fa-plane" aria-hidden="true" style="font-size: 18px; color: blue; font-weight: bold;" ng-show="masterlist.name == 'Travel'"></i>
                                 <i class="fa fa-money" aria-hidden="true" style="font-size: 18px; color: mediumpurple; font-weight: bold;" ng-show="masterlist.name == 'Salary'"></i>
                                 <i class="fa fa-credit-card" aria-hidden="true" style="font-size: 18px; color: #F4D03F; font-weight: bold;" ng-show="masterlist.name == 'First Choice'"></i>
                                 <i class="fa fa-home" aria-hidden="true" style="font-size: 18px; color:hotpink; font-weight: bold;" ng-show="masterlist.name == 'Room'"></i>
                                 <i class="fa fa-mobile-phone" aria-hidden="true" style="font-size: 18px; color:darkorange; font-weight: bold;" ng-show="masterlist.name == 'Telephone'"></i>
+                                <i class="fa fa-info-circle" aria-hidden="true" style="font-size: 18px; color:#00cbff; font-weight: bold;" ng-show="masterlist.name != 'Telephone' && masterlist.name != 'Salary' && masterlist.name != 'First Choice'  && masterlist.name != 'Room'  && masterlist.name != 'Travel' "></i>
                             </div>
                             <div class="col-xs-6">
                                 <p class="control-label"> Prices : {{masterlist.prices}}</p>
