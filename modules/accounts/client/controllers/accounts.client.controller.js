@@ -19,34 +19,7 @@
         vm.save = save;
         vm.masterlists = MasterlistsService.query();
         vm.months = MonthsService.query();
-        // vm.getWidth = function () {
-        //     var width = document.getElementById('xxx').clientWidth / 7;
-        //     var i = [];
-        //     for (let i = 0; i < 7; i++) {
-        //         var id = 'd' + i;
-        //         document.getElementById(id).style.width = width;               
-        //    }
-        // };
-        // vm.width = vm.getWidth();
-        // vm.account.lists ? vm.account.lists : [];
-        // vm.account.comment ? vm.account.comment : [];
-        console.log(vm.account);
         
-        // if (vm.account) {
-        //     if (vm.account.lists.length > 0) {
-        //         vm.account.lists = vm.account.lists;
-        //     } else {
-        //         vm.account.lists = [];
-        //     }
-
-        //     if (vm.account.comment.length > 0) {
-        //         vm.account.comment = vm.account.comment;
-        //     } else {
-        //         vm.account.lists = [];
-        //     }
-        // }
-
-
         if ($stateParams.day) {
             vm.day = $stateParams.day;
         }
