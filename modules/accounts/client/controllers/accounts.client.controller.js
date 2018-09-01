@@ -30,6 +30,8 @@
         // vm.width = vm.getWidth();
         // vm.account.lists ? vm.account.lists : [];
         // vm.account.comment ? vm.account.comment : [];
+        console.log(vm.account);
+        
         if (vm.account) {
             if (vm.account.lists.length > 0) {
                 vm.account.lists = vm.account.lists;
